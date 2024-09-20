@@ -50,6 +50,22 @@ describe("transformKeys", () => {
         });
     });
 
+    it("should omit keys with specific values", () => {
+        const obj = {
+            name: "Alice",
+            details: { age: 25, city: "Wonderland", status: "active" },
+        };
+        const result = transformKeys(obj, {
+            deep: true,
+            omitByValue: [25, "active"],
+        });
+
+        expect(result).toEqual({
+            name: "Alice",
+            details: { city: "Wonderland" },
+        });
+    });
+
     it("should handle deep omit on nested objects", () => {
         const obj = { name: "Alice", details: { hobby: "Reading", age: 25 } };
         const result = transformKeys(obj, {

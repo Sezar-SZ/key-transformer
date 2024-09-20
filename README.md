@@ -13,16 +13,24 @@ npm install key-transformer
 ```js
 import transformKeys from 'key-transformer';
 
-const obj = { name: "Alice", age: 25, city: "Wonderland", hobby: null };
+const obj = {
+    name: "Alice",
+    age: 25,
+    city: "Wonderland",
+    hobby: null,
+    status: "active",
+};
 const result = transformKeys(obj, {
     omit: ["age"],
     omitEmpty: true,
+    omitByValue: ["active"],
     valueTransformer: (value) =>
         typeof value === "string" ? value.toUpperCase() : value,
 });
 
 console.log(result);
 // output: { name: 'ALICE', city: 'WONDERLAND' }
+
 
 ```
 
@@ -32,9 +40,10 @@ console.log(result);
 transformKeys(obj, options?)
 ```
 
-| Options          | Description                                                    | Type                | Default |
+| options          | Description                                                    | type                | Default |
 |------------------|----------------------------------------------------------------|---------------------|---------|
 | omit             | Array of keys to omit from the object                          | string[]            | []      |
-| valueTransformer | Function to transform each value in the object                 | (value: any) => any | no-op   |
 | omitEmpty        | If true, removes keys with null, undefined, or empty strings   | boolean             | false   |
+| omitByValue      | Array of values; Keys with matching values will be omitted     | string[]            | []      |
+| valueTransformer | Function to transform each value in the object                 | (value: any) => any | no-op   |
 | deep             | If true, recursively applies transformations to nested objects | boolean             | false   |
