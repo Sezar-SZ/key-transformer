@@ -1,4 +1,4 @@
-# Sanitize Persian Texts
+# Key Transformer
 
 key-transformer is a utility for transforming object keys and values in JavaScript and TypeScript. It allows you to omit specific keys, apply custom transformations to values, remove empty entries, and handle nested objects with ease.
 
