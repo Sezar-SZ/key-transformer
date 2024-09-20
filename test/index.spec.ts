@@ -57,7 +57,7 @@ describe("transformKeys", () => {
         };
         const result = transformKeys(obj, {
             deep: true,
-            omitByValue: [25, "active"],
+            omitByValues: [25, "active"],
         });
 
         expect(result).toEqual({

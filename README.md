@@ -23,7 +23,7 @@ const obj = {
 const result = transformKeys(obj, {
     omit: ["age"],
     omitEmpty: true,
-    omitByValue: ["active"],
+    omitByValues: ["active"],
     valueTransformer: (value) =>
         typeof value === "string" ? value.toUpperCase() : value,
 });
@@ -44,6 +44,6 @@ transformKeys(obj, options?)
 |------------------|----------------------------------------------------------------|---------------------|---------|
 | omit             | Array of keys to omit from the object                          | string[]            | []      |
 | omitEmpty        | If true, removes keys with null, undefined, or empty strings   | boolean             | false   |
-| omitByValue      | Array of values; Keys with matching values will be omitted     | string[]            | []      |
+| omitByValues      | Array of values; Keys with matching values will be omitted     | string[]            | []      |
 | valueTransformer | Function to transform each value in the object                 | (value: any) => any | no-op   |
 | deep             | If true, recursively applies transformations to nested objects | boolean             | false   |

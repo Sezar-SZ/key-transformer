@@ -3,7 +3,7 @@ type TransformKeysOptions = {
     valueTransformer?: (value: any) => any;
     deep?: boolean;
     omitEmpty?: boolean;
-    omitByValue?: any[];
+    omitByValues?: any[];
 };
 
 function transformKeys(
@@ -15,7 +15,7 @@ function transformKeys(
         valueTransformer = (val) => val,
         deep = false,
         omitEmpty = false,
-        omitByValue = [],
+        omitByValues = [],
     } = options;
     const result: Record<string, any> = {};
 
@@ -33,7 +33,7 @@ function transformKeys(
             return;
         }
 
-        if (omitByValue.includes(value)) {
+        if (omitByValues.includes(value)) {
             return;
         }
 
@@ -50,21 +50,3 @@ function transformKeys(
 }
 
 export default transformKeys;
-
-const obj = {
-    name: "Alice",
-    age: 25,
-    city: "Wonderland",
-    hobby: null,
-    status: "active",
-};
-const result = transformKeys(obj, {
-    omit: ["age"],
-    omitEmpty: true,
-    omitByValue: ["active"],
-    valueTransformer: (value) =>
-        typeof value === "string" ? value.toUpperCase() : value,
-});
-
-console.log(result);
-// output: { name: 'ALICE', city: 'WONDERLAND' }
