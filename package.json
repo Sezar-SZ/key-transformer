@@ -1,0 +1,41 @@
+{
+    "name": "key-transformer",
+    "version": "1.0.0",
+    "description": "A Package to transform, omit and sanitize keys and values in an object",
+    "files": [
+        "dist",
+        "package.json"
+    ],
+    "exports": {
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsup ./src",
+        "test": "vitest run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Sezar-SZ/key-transformer.git"
+    },
+    "keywords": [
+        "node",
+        "object",
+        "sanitize object",
+        "transform keys",
+        "transform object"
+    ],
+    "author": "Sezar-SZ",
+    "license": "MIT",
+    "devDependencies": {
+        "tsup": "^8.0.1",
+        "typescript": "^5.3.3",
+        "vitest": "^1.2.2"
+    }
+}
