@@ -1,7 +1,7 @@
 {
     "name": "key-transformer",
     "version": "1.0.0",
-    "description": "A Package to transform, omit and sanitize keys and values in an object",
+    "description": "A utility for transforming object keys and values in JavaScript and TypeScript",
     "files": [
         "dist",
         "package.json"
