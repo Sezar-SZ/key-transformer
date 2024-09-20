@@ -1,6 +1,6 @@
 {
     "name": "key-transformer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A utility for transforming object keys and values in JavaScript and TypeScript",
     "files": [
         "dist",
